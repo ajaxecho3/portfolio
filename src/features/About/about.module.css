@@ -1,0 +1,14 @@
+.about__container {
+  display: block;
+  position: relative;
+  height: 5vh;
+  background-color: azure;
+  padding: 5px;
+}
+.about__text-center {
+  text-align: center;
+}
+
+.about__padding {
+  padding: 50px !important;
+}

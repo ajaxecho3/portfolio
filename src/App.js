@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from 'react'
+import About from './features/About'
+import Hero from './features/hero'
+import Navigation from './features/navigation'
+import Works from './features/works'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Fragment>
+      <Navigation />
+      <Hero id="Home" style={{ Height: "100vh" }} />
+      <Works id="Works" style={{ Height: "100vh" }} />
+      <About id="Contacts" style={{ Height: "100vh" }} />
+    </Fragment>
+  )
 }
-
-export default App;
