@@ -12,7 +12,6 @@ export default function Navigation() {
             <Nav.Link href="#Home">Home</Nav.Link>
             <Nav.Link href="#Works">Works</Nav.Link>
             <Nav.Link href="#Contacts">Contacts</Nav.Link>
-            <Button>Download resume</Button>
           </Nav>
         </Navbar.Collapse>
       </Container>

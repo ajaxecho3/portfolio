@@ -2,7 +2,7 @@
   display: block;
   position: relative;
   height: 100vh;
-  background-color: #193549;
+  background-color: #404040;
 }
 
 .hero__content {
@@ -46,4 +46,17 @@
   bottom: 0;
   transform-origin: left top;
   transform: skewX(150deg);
+}
+
+.hero__about_btn {
+  background: white;
+  border-radius: 30px;
+  width: 150px;
+  height: 40px;
+}
+.hero__download_btn {
+  background: white;
+  border-radius: 30px;
+  width: 150px;
+  height: 40px;
 }
