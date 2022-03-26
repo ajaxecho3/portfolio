@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
 import style from './hero.module.css';
-import profile from '../../assets/pictures/profile.png'
+import profile from '../../assets/pictures/profile2.png'
 import { Canvas, useFrame } from '@react-three/fiber'
 function Box(props) {
   // This reference gives us direct access to the THREE.Mesh object
@@ -33,23 +33,14 @@ export default function Hero(props) {
         <div className={`${style.hero__content} position-relative`} >
           <div className='position-relative top-50 start-50 translate-middle'>
             <Row>
-              <Col sm={8}>
+              <Col sm={6}>
                 <Row><h2>Hello, Welcome to my portfolio</h2></Row>
                 <Row><h3> I'm Bernard nice to have you here</h3></Row>
                 <Row><h3> and also i'm glad you visit here.</h3></Row>
               </Col>
-              <Col sm={4}>
-                <Canvas style={{ maxHeight: "1000px", height: "500px", maxWidth: "1000px", width: "500px", backgroundColor: "transparent", position: "absolute", zIndex: 2 }}>
-                  <ambientLight intensity={0.5} />
-                  <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-                  <pointLight position={[-10, -10, -10]} />
-                  <Box position={[-1.2, 0, 0]} />
-                  <Box position={[1.2, 0, 0]} />
-                  <Box position={[-1.2, 3, 0]} />
-                  <Box position={[1.2, -3, 0]} />
+              <Col sm={6}>
 
-                </Canvas>
-                <img src={profile} alt="profile" style={{ position: "absolute", zIndex: 3 }} />
+                <img src={profile} alt="profile" style={{ position: "relative", zIndex: 3 }} />
 
               </Col>
             </Row>
