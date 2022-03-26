@@ -3,7 +3,6 @@ import About from './features/About'
 import Hero from './features/hero'
 import Navigation from './features/navigation'
 import Works from './features/works'
-
 export default function App() {
   return (
     <Fragment>
