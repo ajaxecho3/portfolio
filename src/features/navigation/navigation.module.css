@@ -1,0 +1,8 @@
+.navigation__brandLogo {
+  width: 30px;
+  overflow: visible;
+  stroke: rgb(189, 17, 17);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
