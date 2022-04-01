@@ -14,11 +14,11 @@ export default function Hero(props) {
           <div className='position-relative top-50 start-50 translate-middle'>
             <Row>
               <Col sm={6}>
-                <Row><h1 >Hello! I'm</h1></Row>
+                <Row><h2 >Hello! I'm</h2></Row>
                 <Row><h1 style={{ color: "#FCAF3C" }}> Bernardino Ochoa</h1></Row>
                 <Row><p> Frontend Developer that helps you to develop your client-facing idea with a more user-friendly interface.</p></Row>
                 <Row>
-                  <Col sm={4}>
+                  <Col sm={12} className=" d-flex justify-content-end">
                     <motion.button
                       className={style.hero__about_btn}
                       whileHover={{ scale: 1.1 }}
@@ -28,7 +28,7 @@ export default function Hero(props) {
                   </Col>
                 </Row>
               </Col>
-              <Col sm={6}>
+              <Col sm={6} className=" d-flex justify-content-center">
                 <img src={profile} alt="profile" className='img-fluid' />
               </Col>
             </Row>

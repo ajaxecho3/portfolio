@@ -1,7 +1,7 @@
 .hero__container {
   display: block;
   position: relative;
-  height: 110vh;
+  height: 100vh;
   background-color: #404040;
 }
 
@@ -49,8 +49,10 @@
 }
 
 .hero__about_btn {
-  background: white;
+  background: #fcaf3c;
   border-radius: 30px;
+  color: #404040;
+  font-weight: bold;
   width: 150px;
   height: 40px;
 }
