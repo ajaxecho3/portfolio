@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import style from './hero.module.css';
 import profile from '../../assets/pictures/profile.png'
 import { motion } from 'framer-motion';
@@ -29,7 +29,7 @@ export default function Hero(props) {
                 </Row>
               </Col>
               <Col sm={6}>
-                <img src={profile} alt="profile" />
+                <img src={profile} alt="profile" className='img-fluid' />
               </Col>
             </Row>
           </div>
