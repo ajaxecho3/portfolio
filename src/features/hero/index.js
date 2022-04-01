@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
 import style from './hero.module.css';
 import profile from '../../assets/pictures/profile.png'
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 
 export default function Hero(props) {
-
+  const [showShowAbout, setShowAbout] = useState(false)
   return (
     <div id={props.id} className={style.hero__container}>
       <Container>
@@ -18,14 +18,29 @@ export default function Hero(props) {
                 <Row><h1 style={{ color: "#FCAF3C" }}> Bernardino Ochoa</h1></Row>
                 <Row><p> Frontend Developer that helps you to develop your client-facing idea with a more user-friendly interface.</p></Row>
                 <Row>
-                  <Col sm={12} className=" d-flex justify-content-end">
+                  <Col sm={12} className=" d-flex justify-content-center">
                     <motion.button
+                      layoutId={1}
+                      onClick={() => setShowAbout(true)}
                       className={style.hero__about_btn}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}>
                       more about me
                     </motion.button>
                   </Col>
+                  <AnimatePresence>
+                    {
+                      showShowAbout && (
+                        <motion.div layoutId={1} className={style.hero__about_container}>
+                          <motion.div className={style.about__header}>
+                            <motion.h1 className='position-absolute top-50 start-50 translate-middle'>
+                              coming soon....
+                            </motion.h1>
+                          </motion.div>
+                        </motion.div>
+                      )
+                    }
+                  </AnimatePresence>
                 </Row>
               </Col>
               <Col sm={6} className=" d-flex justify-content-center">
@@ -60,7 +75,7 @@ export default function Hero(props) {
               times: [0, 0.16, 0.33],
             }}
             opacity=".25"
-            class="shape-fill">
+          >
           </motion.path>
           <motion.path
             animate={{
@@ -78,7 +93,7 @@ export default function Hero(props) {
               times: [0, 0.16, 0.33],
             }}
             opacity=".5"
-            class="shape-fill">
+          >
           </motion.path>
           <motion.path
             animate={{
@@ -95,7 +110,7 @@ export default function Hero(props) {
               duration: 3,
               times: [0, 0.16, 0.33],
             }}
-            class="shape-fill">
+          >
           </motion.path>
         </motion.svg>
 
