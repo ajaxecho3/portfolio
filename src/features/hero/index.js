@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Row, Col } from 'react-bootstrap';
+// import { Container, Row, Col } from 'react-bootstrap';
 import style from './hero.module.css';
 import profile from '../../assets/pictures/profile.png'
 import { AnimatePresence, motion } from 'framer-motion';
@@ -7,50 +7,63 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 export default function Hero(props) {
   const [showShowAbout, setShowAbout] = useState(false)
+  const container = {
+    hidden: { x: -700, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1
+    }
+  };
   return (
-    <div id={props.id} className={style.hero__container}>
-      <Container>
-        <div className={`${style.hero__content} position-relative`} >
-          <div className='position-relative top-50 start-50 translate-middle'>
-            <Row>
-              <Col sm={6}>
-                <Row><h2 >Hello! I'm</h2></Row>
-                <Row><h1 style={{ color: "#FCAF3C" }}> Bernardino Ochoa</h1></Row>
-                <Row><p> Frontend Developer that helps you to develop your client-facing idea with a more user-friendly interface.</p></Row>
-                <Row>
-                  <Col sm={12} className=" d-flex justify-content-center">
-                    <motion.button
-                      layoutId={1}
-                      onClick={() => setShowAbout(true)}
-                      className={style.hero__about_btn}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}>
-                      more about me
-                    </motion.button>
-                  </Col>
-                  <AnimatePresence>
-                    {
-                      showShowAbout && (
-                        <motion.div layoutId={1} className={style.hero__about_container}>
-                          <motion.div className={style.about__header}>
-                            <motion.h1 className='position-absolute top-50 start-50 translate-middle'>
-                              coming soon....
-                            </motion.h1>
-                          </motion.div>
-                        </motion.div>
-                      )
-                    }
-                  </AnimatePresence>
-                </Row>
-              </Col>
-              <Col sm={6} className=" d-flex justify-content-center">
-                <img src={profile} alt="profile" className='img-fluid' />
-              </Col>
-            </Row>
-          </div>
-        </div>
+    <motion.div id={props.id} className={style.hero__container}>
+      <motion.div className={`container`}>
+        <motion.div className={`${style.hero__content} position-relative`} >
+          <motion.div className='position-relative top-50 start-50 translate-middle'>
+            <motion.div className={`row`}>
+              <motion.div className={`col`} >
+                <motion.div
+                  variants={container}
+                  initial="hidden"
+                  animate="visible"
+                  // whileHover={{ scale: 1.1 }}
+                  // whileTap={{ scale: 0.9 }}
+                  layoutId={1}
+                  className={`${style.hero__about_init_container}`}
+                  onClick={() => setShowAbout(true)} >
+                  <motion.div className='row'>
+                    <motion.h2 >Hello! I'm</motion.h2>
+                  </motion.div>
+                  <motion.div className='row'>
+                    <motion.h1 style={{ color: "#FCAF3C" }}> Bernardino Ochoa</motion.h1></motion.div>
+                  <motion.div className='row'>
+                    <motion.p> Frontend Developer that helps you to develop your client-facing idea with a more user-friendly interface.</motion.p>
+                  </motion.div>
+                </motion.div>
 
-      </Container>
+              </motion.div>
+              <motion.div className=" col d-flex justify-content-center">
+                <motion.img src={profile} alt="profile" className={`${style.hero__profile_img} img-fluid`} />
+              </motion.div>
+              <AnimatePresence>
+                {
+                  showShowAbout && (
+                    <motion.div layoutId={1} className={`${style.hero__about_container} ${style.hero__glassmorphism} clearfix`}>
+                      <motion.div className={`${style.about__header} row`}>
+                        <motion.div className='col-6'></motion.div>
+                        <motion.div className='col-6 p-2'><motion.button className={`${style.hore__closebutton} float-end`} onClick={() => setShowAbout(false)}>Close</motion.button></motion.div>
+                      </motion.div>
+                      <motion.div>
+                        <motion.h1>Coming soon....</motion.h1>
+                      </motion.div>
+                    </motion.div>
+                  )
+                }
+              </AnimatePresence>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+
+      </motion.div>
       <div className={style.wave_divider}>
         <motion.svg data-name="Layer 1"
           viewBox="0 0 900 600"
@@ -113,8 +126,7 @@ export default function Hero(props) {
           >
           </motion.path>
         </motion.svg>
-
       </div>
-    </div>
+    </motion.div>
   )
 }

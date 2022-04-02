@@ -16,7 +16,7 @@ export default function Navigation() {
   return (
     <Navbar className='navbar fixed-top navbar-expand-lg navbar-dark ' collapseOnSelect >
       <Container>
-        <Navbar.Brand href="#Home">
+        {/* <Navbar.Brand href="#Home">
           <motion.svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 100 100"
@@ -33,9 +33,9 @@ export default function Navigation() {
               }}
             />
           </motion.svg>
-        </Navbar.Brand>
+        </Navbar.Brand> */}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
+        <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-center">
           <Nav>
             <Nav.Link href="#Home">Home</Nav.Link>
             <Nav.Link href="#Works">Works</Nav.Link>
