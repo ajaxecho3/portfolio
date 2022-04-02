@@ -1,18 +1,18 @@
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import React from 'react'
 import { Navbar, Container, Nav } from 'react-bootstrap'
-import style from './navigation.module.css'
+// import style from './navigation.module.css'
 export default function Navigation() {
-  const icon = {
-    hidden: {
-      pathLength: 0,
-      fill: "rgba(255, 255, 255, 0)"
-    },
-    visible: {
-      pathLength: 1,
-      fill: "rgba(255, 255, 255, 1)"
-    }
-  }
+  // const icon = {
+  //   hidden: {
+  //     pathLength: 0,
+  //     fill: "rgba(255, 255, 255, 0)"
+  //   },
+  //   visible: {
+  //     pathLength: 1,
+  //     fill: "rgba(255, 255, 255, 1)"
+  //   }
+  // }
   return (
     <Navbar className='navbar fixed-top navbar-expand-lg navbar-dark ' collapseOnSelect >
       <Container>
