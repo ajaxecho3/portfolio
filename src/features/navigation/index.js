@@ -2,7 +2,7 @@
 import React from 'react'
 import { Navbar, Container, Nav } from 'react-bootstrap'
 import style from './navigation.module.css'
-// import style from './navigation.module.css'
+
 export default function Navigation() {
   // const icon = {
   //   hidden: {

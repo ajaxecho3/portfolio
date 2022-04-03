@@ -4,7 +4,6 @@ import { Container, Row, Col } from 'react-bootstrap'
 import style from './contacts.module.css'
 import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'framer-motion'
-
 export default function Contacts(props) {
   const [showContactModal, setShowContactModal] = useState(false)
   const form = useRef();
@@ -18,8 +17,9 @@ export default function Contacts(props) {
         console.log(error.text);
       });
   };
+
   return (
-    <motion id={props.id} className={style.contacts__container}>
+    <motion.div id={props.id} className={style.contacts__container}>
       <motion.button className={style.contacts__fab} layoutId={2} onClick={() => setShowContactModal(true)}>
         <svg
           stroke="currentColor"
@@ -108,7 +108,7 @@ export default function Contacts(props) {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion>
+    </motion.div>
   )
 }
 
