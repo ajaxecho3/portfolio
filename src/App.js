@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import About from './features/about'
+import About from './features/aboutme'
 import Contacts from './features/contacts'
 import Hero from './features/hero'
 import { FloatingSidenav } from './features/navigation'
