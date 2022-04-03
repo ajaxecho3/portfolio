@@ -1,14 +1,122 @@
 .about__container {
   display: block;
   position: relative;
-  height: 5vh;
-  background-color: azure;
-  padding: 5px;
-}
-.about__text-center {
-  text-align: center;
+  height: 100vh;
+  background-color: #404040;
+  z-index: 1;
 }
 
-.about__padding {
-  padding: 50px !important;
+.about__content {
+  height: 100vh;
+  background-color: transparent;
+  color: white;
+}
+
+.about__content__col_1 {
+  position: relative;
+  padding: 200px 0;
+  background: #193549;
+  overflow: visible;
+  z-index: 1;
+}
+.about__content__col_1::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: inherit;
+  z-index: -1;
+  bottom: 0;
+  transform-origin: left bottom;
+  transform: skewX(150deg);
+}
+.about__content__col_2 {
+  position: relative;
+  padding: 200px 0;
+  background: #ffffff;
+  overflow: visible;
+}
+.about__content__col_2::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: inherit;
+  z-index: -1;
+  bottom: 0;
+  transform-origin: left top;
+  transform: skewX(150deg);
+}
+
+.about__about_btn {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border-radius: 10px;
+  border: 1px solid #f1c64a;
+  color: #f1c64a;
+  font-weight: bold;
+  width: 150px;
+  height: 40px;
+}
+.about__download_btn {
+  background: white;
+  border-radius: 30px;
+  width: 150px;
+  height: 40px;
+}
+
+.about__profile_img {
+  /* z-index: 1; */
+  pointer-events: none;
+}
+
+.about__glassmorphism {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.about__about_container {
+  width: 100%;
+  min-height: 1000px;
+  position: absolute;
+}
+.about__about_init_container {
+  width: 550px;
+  min-height: 100px;
+  position: absolute;
+  padding: 10px;
+}
+
+.hore__closebutton {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+.wave_divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0;
+  pointer-events: none;
+  transform: rotate(0deg);
+  z-index: -1;
+}
+
+.wave_divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 100%;
+  pointer-events: none;
+  fill: #404040;
 }
