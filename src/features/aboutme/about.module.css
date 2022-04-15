@@ -4,6 +4,8 @@
   height: 100vh;
   background-color: #404040;
   z-index: 1;
+  scroll-snap-align: start;
+  overflow: hidden;
 }
 
 .about__content {
@@ -69,6 +71,7 @@
 
 .about__profile_img {
   /* z-index: 1; */
+  z-index: 1;
   pointer-events: none;
 }
 

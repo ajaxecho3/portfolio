@@ -1,0 +1,70 @@
+.wave_divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0;
+  pointer-events: none;
+  transform: rotate(0deg);
+  z-index: -1;
+}
+
+.wave_divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 100%;
+  pointer-events: none;
+  fill: #404040;
+}
+.wave_divider2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0;
+  pointer-events: none;
+  transform: rotate(180deg);
+  z-index: 1;
+}
+
+.wave_divider2 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 100%;
+  pointer-events: none;
+  fill: #404040;
+}
+.step_divider2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0;
+  pointer-events: none;
+  transform: rotate(0deg);
+  z-index: 1;
+}
+
+.step_divider2 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 100%;
+  pointer-events: none;
+  fill: #404040;
+  background: rgb(252, 176, 69);
+  background: radial-gradient(
+    circle,
+    rgba(252, 176, 69, 1) 0%,
+    rgba(241, 198, 74, 1) 50%,
+    rgba(64, 64, 64, 1) 100%
+  );
+}

@@ -1,5 +1,8 @@
 .App {
-  text-align: center;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
 }
 
 .App-logo {
@@ -35,4 +38,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.about__profile_img {
+  z-index: 2;
+  left: 37%;
+  top: 70%;
+  position: absolute;
+  pointer-events: none;
 }
