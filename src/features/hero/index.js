@@ -18,7 +18,7 @@ const particles = Array.from({ length: 50 }, () => ({
 
 export default function Hero(props) {
   return (
-    <motion.div id={props.id} className={style.hero__container}>
+    <motion.div id={props.id} className={`${style.hero__container} ${style.hero__glassmorphism2}`}>
       <Canvas shadows dpr={[1, 2]} gl={{ antialias: false }} camera={{ fov: 70, position: [0, 0, 60], near: 10, far: 150 }}>
         <ambientLight intensity={0.5} />
         <DistortedCircles />
