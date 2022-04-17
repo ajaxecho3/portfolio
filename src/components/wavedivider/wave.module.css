@@ -7,8 +7,7 @@
   overflow: hidden;
   line-height: 0;
   pointer-events: none;
-  transform: rotate(0deg);
-  z-index: -1;
+  z-index: 1;
 }
 
 .wave_divider svg {

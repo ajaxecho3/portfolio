@@ -6,16 +6,16 @@ import { motion } from 'framer-motion';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import { MeshDistortMaterial, Html, Instance, Instances, Box } from '@react-three/drei'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
-
-const particles = Array.from({ length: 10 }, () => ({
+import WaveDivider from '../../components/wavedivider';
+const particles = Array.from({ length: 11 }, () => ({
   factor: MathUtils.randInt(20, 100),
   speed: MathUtils.randFloat(0.03, 1),
   xFactor: MathUtils.randFloatSpread(80),
   yFactor: MathUtils.randFloatSpread(40),
-  zFactor: MathUtils.randFloatSpread(40)
+  zFactor: MathUtils.randFloatSpread(40),
 
 }))
-const particles2 = Array.from({ length: 10 }, () => ({
+const particles2 = Array.from({ length: 5 }, () => ({
   factor: MathUtils.randInt(20, 100),
   speed: MathUtils.randFloat(0.03, 1),
   xFactor: MathUtils.randFloatSpread(80),
@@ -27,21 +27,29 @@ const particles2 = Array.from({ length: 10 }, () => ({
 
 export default function Hero(props) {
   return (
-    <motion.div id={props.id} className={`${style.hero__container} ${style.hero__glassmorphism2}`}>
-      <Canvas shadows dpr={[1, 2]} gl={{ antialias: true }} camera={{ fov: 70, position: [0, 0, 60], near: 10, far: 150 }}>
-        <ambientLight intensity={0.5} />
-        <Suspense fallback={null}>
-          <group>
-            <SphereShell />
-            <DistortedCircles />
-          </group>
-          <HtmlContent />
-        </Suspense>
-        <directionalLight position={[10, 10, 5]} intensity={1} />
-        <pointLight position={[0, -10, 5]} intensity={1} />
-      </Canvas>
+    <div>
+      <motion.div id={props.id} className={`${style.hero__container}`}>
+        <Canvas style={{ position: "absolute" }} shadows dpr={[1, 2]} gl={{ antialias: false }} camera={{ fov: 70, position: [0, 0, 60], near: 10, far: 150 }}>
+          <ambientLight intensity={0.5} />
+          <Suspense fallback={null}>
+            <HtmlContent />
+            <group>
+              {/* <SphereShell /> */}
+              <DistortedCircles />
+            </group>
+          </Suspense>
+          <directionalLight position={[10, 10, 5]} intensity={1} />
+          <pointLight position={[0, -10, 5]} intensity={1} />
+        </Canvas>
 
-    </motion.div>
+      </motion.div>
+      <WaveDivider />
+
+      <motion.div id={props.id} className={`${style.hero__container2}`}>
+
+
+      </motion.div>
+    </div>
   )
 }
 
@@ -60,29 +68,29 @@ function DistortedCircles(props) {
     <Instances limit={particles.length} ref={ref} castShadow receiveShadow position={[0, 10, 0]}>
       <sphereGeometry args={[1, 32, 32]} />
       <MeshDistortMaterial
-        color="#FFFFFF"
+        color="#a8ccd7"
         attach="material"
         distort={0.5} // Strength, 0 disables the effect (default=1)
         speed={2} // Speed (default=1)
         roughness={0}
         thickness={0}
-        clearcoat={0.3}
-        clearcoatRoughness={0}
+        clearcoat={0.2}
+        clearcoatRoughness={0.2}
         transmission={1}
-        attenuationTint='#FFFFFF'
+        attenuationTint='#a8ccd7'
         envMapIntensity={25}
-        ior={25}
+        ior={1.25}
       />
       {particles.map((data, i) => (
-        <DistortedCircle key={i} {...data} />
+        <DistortedCircle key={i} texture={`${i}.png`} {...data} />
       ))}
     </Instances>
   )
 }
 
-function DistortedCircle({ factor, speed, xFactor, yFactor, zFactor }) {
+function DistortedCircle({ factor, speed, xFactor, yFactor, zFactor, texture }) {
   const ref = useRef()
-  const colorMap = useLoader(TextureLoader, 'images.png')
+  const colorMap = useLoader(TextureLoader, texture)
   useFrame((state) => {
     const t = factor + state.clock.elapsedTime * (speed / 2)
     ref.current.scale.setScalar(Math.max(1.5, Math.cos(t) * 5))
@@ -95,12 +103,11 @@ function DistortedCircle({ factor, speed, xFactor, yFactor, zFactor }) {
   return (<Instance ref={ref}>
     <Box>
       <meshStandardMaterial map={colorMap} />
-
-
     </Box>
   </Instance>)
 }
 
+// eslint-disable-next-line no-unused-vars
 function SphereShell(props) {
   const ref = useRef()
 
@@ -112,12 +119,12 @@ function SphereShell(props) {
   )
 
   return (
-    <Instances limit={particles.length} ref={ref} castShadow receiveShadow position={[0, 10, 0]}>
+    <Instances limit={particles2.length} ref={ref} castShadow receiveShadow position={[0, 10, 0]}>
       <boxBufferGeometry args={[2, 2, 2]} />
       <meshNormalMaterial
         color="#FFFFFF"
         attach="material"
-        scale={0.3}
+        scale={0.1}
       // roughness={0}
       // thickness={0}
       // clearcoat={0.3}
@@ -161,10 +168,10 @@ const HtmlContent = () => {
           <div className={`row container`}>
             <div className='col p-2'>
               <div className={`row`}>
-                <motion.p style={{ fontSize: "3rem", marginBottom: 0 }}>
+                <motion.p style={{ color: '#404040', fontSize: "3rem", marginBottom: 0 }}>
                   Hello, I'm
                 </motion.p>
-                <motion.p style={{ fontSize: "10rem", marginBottom: 0, lineHeight: "125px" }}>
+                <motion.p style={{ color: "#F1C64A", fontSize: "10rem", marginBottom: 0, lineHeight: "125px" }}>
                   Bernardino Ochoa
                 </motion.p>
                 <motion.p style={{ fontSize: "3rem", marginBottom: 0 }}>
@@ -178,13 +185,7 @@ const HtmlContent = () => {
             <div className='col'>
             </div>
           </div>
-          <div className={`row container`}>
-            <div className='col'>
-            </div>
-            <div className='col'>
-              <button>Read more</button>
-            </div>
-          </div>
+
         </div>
       </Html>
     </group>
