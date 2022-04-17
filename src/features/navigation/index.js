@@ -1,50 +1,32 @@
 // import { motion } from 'framer-motion';
 import React from 'react'
-import { Navbar, Container, Nav } from 'react-bootstrap'
 import style from './navigation.module.css'
-
+import { Link } from "react-router-dom";
 export default function Navigation() {
-  // const icon = {
-  //   hidden: {
-  //     pathLength: 0,
-  //     fill: "rgba(255, 255, 255, 0)"
-  //   },
-  //   visible: {
-  //     pathLength: 1,
-  //     fill: "rgba(255, 255, 255, 1)"
-  //   }
-  // }
+
   return (
-    <Navbar className='navbar fixed-top navbar-expand-lg navbar-dark ' collapseOnSelect >
-      <Container>
-        {/* <Navbar.Brand href="#Home">
-          <motion.svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 100 100"
-            className={style.navigation__brandLogo}
-          >
-            <motion.path
-              d="M0 100V0l50 50 50-50v100L75 75l-25 25-25-25z"
-              variants={icon}
-              initial="hidden"
-              animate="visible"
-              transition={{
-                default: { duration: 2, ease: "easeInOut" },
-                fill: { duration: 2, ease: [1, 0, 0.8, 1] }
-              }}
-            />
-          </motion.svg>
-        </Navbar.Brand> */}
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-center">
-          <Nav>
-            <Nav.Link href="#Home">Home</Nav.Link>
-            <Nav.Link href="#Works">Works</Nav.Link>
-            <Nav.Link href="#Contacts">Contacts</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <nav className="navbar fixed-top navbar-expand-lg navbar-light">
+      <div className="container ">
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul className="navbar-nav  me-auto mb-2 mb-lg-0 ">
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">About</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link navbar-brand" to="/">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/work">Works</Link>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
   )
 }
 
