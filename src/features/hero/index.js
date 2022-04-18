@@ -7,6 +7,9 @@ import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import { MeshDistortMaterial, Html, Instance, Instances, Box } from '@react-three/drei'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import WaveDivider from '../../components/wavedivider';
+import Ufo from '../../assets/model/Ufo';
+
+
 const particles = Array.from({ length: 11 }, () => ({
   factor: MathUtils.randInt(20, 100),
   speed: MathUtils.randFloat(0.03, 1),
@@ -25,30 +28,40 @@ const particles2 = Array.from({ length: 5 }, () => ({
 
 }))
 
+
 export default function Hero(props) {
+
   return (
-    <div>
-      <motion.div id={props.id} className={`${style.hero__container}`}>
+    <div id={props.id} className="container-fluid p-0">
+      <motion.div className={`${style.hero__container}`}>
         <Canvas style={{ position: "absolute" }} shadows dpr={[1, 2]} gl={{ antialias: false }} camera={{ fov: 70, position: [0, 0, 60], near: 10, far: 150 }}>
           <ambientLight intensity={0.5} />
           <Suspense fallback={null}>
             <HtmlContent />
+
             <group>
-              {/* <SphereShell /> */}
+              <SphereShell />
+              {/* <DistortedCircles /> */}
+            </group>
+          </Suspense>
+          <directionalLight position={[10, 10, 5]} intensity={1} />
+          <pointLight position={[0, -10, 5]} intensity={1} />
+        </Canvas>
+        <WaveDivider />
+      </motion.div>
+      <div className={`${style.hero__container2}`}>
+        <br />
+        <Canvas style={{ position: "absolute" }} shadows dpr={[1, 2]} gl={{ antialias: false }} camera={{ fov: 70, position: [0, 0, 60], near: 10, far: 150 }}>
+          <ambientLight intensity={0.8} />
+          <Suspense fallback={null}>
+            <group>
               <DistortedCircles />
             </group>
           </Suspense>
           <directionalLight position={[10, 10, 5]} intensity={1} />
           <pointLight position={[0, -10, 5]} intensity={1} />
         </Canvas>
-
-      </motion.div>
-      <WaveDivider />
-
-      <motion.div id={props.id} className={`${style.hero__container2}`}>
-
-
-      </motion.div>
+      </div>
     </div>
   )
 }
@@ -108,6 +121,7 @@ function DistortedCircle({ factor, speed, xFactor, yFactor, zFactor, texture }) 
 }
 
 // eslint-disable-next-line no-unused-vars
+
 function SphereShell(props) {
   const ref = useRef()
 
@@ -120,11 +134,11 @@ function SphereShell(props) {
 
   return (
     <Instances limit={particles2.length} ref={ref} castShadow receiveShadow position={[0, 10, 0]}>
-      <boxBufferGeometry args={[2, 2, 2]} />
-      <meshNormalMaterial
-        color="#FFFFFF"
+      <boxBufferGeometry args={[0, 0, 0]} />
+      <meshStandardMaterial
+        color="#404040"
         attach="material"
-        scale={0.1}
+        scale={0}
       // roughness={0}
       // thickness={0}
       // clearcoat={0.3}
@@ -134,6 +148,7 @@ function SphereShell(props) {
       // envMapIntensity={25}
       // ior={25}
       />
+
       {particles2.map((data, i) => (
         <Cube key={i} {...data} />
       ))}
@@ -152,7 +167,7 @@ function Cube({ factor, speed, xFactor, yFactor, zFactor }) {
     )
   })
   return (<Instance ref={ref}>
-
+    <Ufo scale={0.1} />
   </Instance>)
 }
 
