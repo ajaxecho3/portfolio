@@ -1,14 +1,13 @@
 .hero__container {
   display: block;
   position: relative;
-  height: 100vh;
-  background: rgb(64, 64, 64);
-  background: linear-gradient(
+  min-height: 100%;
+  background: rgb(252, 175, 60);
+  /* background: linear-gradient(
     0deg,
-    rgba(64, 64, 64, 1) 0%,
-    rgba(252, 175, 60, 1) 100%
-  );
-  z-index: 1;
+    rgba(252, 175, 60, 1) 39%,
+    rgba(64, 64, 64, 1) 100%
+  ); */
 }
 .hero__container2 {
   display: block;
@@ -43,4 +42,10 @@
   box-shadow: 0 18px 42px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+}
+
+.hero__oneedgeshadow {
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
 }
