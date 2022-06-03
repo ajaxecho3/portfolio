@@ -1,23 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700&display=swap");
-body {
-  font-family: "Rubik", sans-serif !important;
-}
-::-webkit-scrollbar {
-  width: 10px;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  body {
+    @apply font-[Rubik];
+  }
+  li {
+    @apply px-4;
+    @apply cursor-pointer;
+  }
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #404040;
+.content-div {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 250px;
 }
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+.content-div:hover {
+  background-image: linear-gradient(
+    to right,
+    rgba(112,157,255,0.8),
+    hsla(242, 74%, 61%, 0.8)
+  ) !important;
 }

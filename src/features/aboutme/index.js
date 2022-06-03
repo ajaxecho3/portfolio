@@ -1,21 +1,30 @@
 import React from 'react'
-// import { Container, Row, Col } from 'react-bootstrap';
-import style from './about.module.css';
-import { motion } from 'framer-motion';
 
 
 export default function About(props) {
 
   return (
-    <motion.div id={props.id} className={style.about__container}>
-      <motion.div className={`container p-5`}>
-        <motion.div className={`row `}>
-          <motion.div className={`col`}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </motion.div>
-        </motion.div>
-      </motion.div>
-
-    </motion.div>
+    <div name='about' className='w-full h-screen bg-[#0a192f] text-gray-300'>
+      <div className='flex flex-col justify-center items-center w-full h-full'>
+        <div className='max-w-[1000px] w-full  grid grid-cols-2 gap-8'>
+          <div className='sm: text-right pb-8 pl-4'>
+            <p className='text-4xl font-bold inline border-b-4 border-pink-600'>About</p>
+          </div>
+          <div></div>
+        </div>
+        <div className='max-w-[1000px] w-full  grid sm:grid-cols-2 gap-8'>
+          <div className='text-4x; font-bold sm:text-right px-4'>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Semper risus in hendrerit gravida rutrum quisque non. Rhoncus aenean vel elit scelerisque mauris. Vulputate dignissim suspendisse in est ante. Auctor augue mauris augue neque gravida.
+            </p>
+          </div>
+          <div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Semper risus in hendrerit gravida rutrum quisque non. Rhoncus aenean vel elit scelerisque mauris. Vulputate dignissim suspendisse in est ante. Auctor augue mauris augue neque gravida.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
