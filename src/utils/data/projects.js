@@ -1,12 +1,11 @@
 export const projectList = [
 
-// {
-//   tumbnail: "",
-//     title: "",
-//       description: "",
-//         url: "",
-//           githubrepo: "",
-//   }
+  {
+    tumbnail: "",
+    title: "Crazy Web Builder",
+    url: "/",
+    githubrepo: "/",
+  }
 ]
 
 // {

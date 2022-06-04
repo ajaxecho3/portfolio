@@ -14,9 +14,9 @@ export default function App() {
     <div className="min-h-full">
         <Navbar />
         <Home />
-        <About />
-        <Skills />
         <Work/>
+        <Skills />
+        <About />
         <Contacts />
     </div>
     
