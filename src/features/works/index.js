@@ -13,8 +13,8 @@ function Work() {
 
         <div  className='grid sm:grid-cols-2 md:grid-cols-3 gap-4'>
             {
-              projectList?.map((project) => (
-                <ProjectCard tumbnail={'./0.png'} name={project.title} demourl={project.url} githubrepo={project.githubrepo} />
+              projectList?.map((project, index) => (
+                <ProjectCard key={index} tumbnail={'./0.png'} name={project.title} demourl={project.url} githubrepo={project.githubrepo} />
               ))
             }
         </div>

@@ -13,8 +13,8 @@ export default function Skills() {
         </div>
         <div className='w-full grid grid-cols-2 sm:grid-cols-4 gap-4 text-center py-8'>
           {
-            skills?.map((skill) => (
-              <SkillCard imgsource={skill.tumbnail } skillName={skill.name} />
+            skills?.map((skill, index) => (
+              <SkillCard key={index} imgsource={skill.tumbnail } skillName={skill.name} />
             ))
           }
         </div>
